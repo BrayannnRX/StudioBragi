@@ -1,0 +1,788 @@
+/* ===== VARIÁVEIS CSS ===== */
+:root {
+  /* Paleta de Cores Principal */
+  --primary-green: #4CAF50;
+  --light-green: #66BB6A;
+  --dark-green: #388E3C;
+  
+  /* Cores de Fundo */
+  --dark-bg: #1a1a1a;
+  --card-bg: #2a2a2a;
+  --overlay-bg: rgba(0, 0, 0, 0.7);
+  
+  /* Cores de Texto */
+  --white-text: #ffffff;
+  --gray-text: #cccccc;
+  --light-gray-text: #999999;
+  
+  /* Spotify */
+  --spotify-green: #1DB954;
+  --spotify-hover: #1ed760;
+  
+  /* Sombras e Efeitos */
+  --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.2);
+  --shadow-heavy: 0 8px 30px rgba(0, 0, 0, 0.3);
+  
+  /* Transições */
+  --transition-smooth: all 0.3s ease;
+  --transition-fast: all 0.2s ease;
+}
+
+/* ===== RESET E BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--dark-bg);
+  color: var(--white-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== HEADER ===== */
+.header {
+  background-color: var(--primary-green);
+  padding: 15px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow-medium);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.microphone-icon {
+  font-size: 24px;
+  transform: rotate(-10deg);
+}
+
+.logo-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--white-text);
+}
+
+.back-btn {
+  color: var(--white-text);
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: 2px solid var(--white-text);
+  transition: var(--transition-fast);
+  font-weight: 500;
+}
+
+.back-btn:hover {
+  background-color: var(--white-text);
+  color: var(--primary-green);
+  transform: translateX(-5px);
+}
+
+/* ===== ARTIST HERO SECTION ===== */
+.artist-hero {
+  padding-top: 95px;      /* reduzido de 120px */
+  padding-bottom: 30px;   /* reduzido de 80px */
+  text-align: center;
+  background: linear-gradient(135deg, var(--dark-bg) 0%, var(--card-bg) 100%);
+  min-height: 55vh;       /* reduzido de 70vh */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.artist-image-container {
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.artist-main-image {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--primary-green);
+  box-shadow: var(--shadow-heavy);
+  animation: fadeInScale 1.5s ease-out;
+  position: relative;
+  z-index: 2;
+  object-position: center 10%;
+}
+
+/* Efeito de brilho ao redor da imagem */
+.artist-main-image::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, var(--primary-green), var(--light-green));
+  z-index: -1;
+  opacity: 0.7;
+  animation: pulse 2s infinite;
+}
+
+.artist-info {
+  animation: fadeInUp 1.8s ease-out;
+}
+
+.artist-name {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: var(--white-text);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.artist-genre {
+  font-size: 1.5rem;
+  color: var(--primary-green);
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.artist-bio {
+  font-size: 1.1rem;
+  color: var(--gray-text);
+  max-width: 600px;
+  margin: 0 auto 0px;
+  line-height: 1.8;
+}
+
+/* ===== MÚSICAS SECTION ===== */
+.songs-section {
+  padding: 90px 0;
+  background-color: var(--card-bg);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--primary-green);
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.music-icon, .camera-icon {
+  font-size: 2.5rem;
+  animation: bounce 2s infinite;
+}
+
+.songs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.song-card {
+  background: var(--dark-bg);
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  border: 2px solid transparent;
+  transition: var(--transition-smooth);
+  box-shadow: var(--shadow-medium);
+  animation: slideInUp 0.8s ease-out;
+}
+
+.song-card:hover {
+  border-color: var(--primary-green);
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-heavy);
+}
+
+.song-card:nth-child(1) { animation-delay: 0.2s; }
+.song-card:nth-child(2) { animation-delay: 0.4s; }
+.song-card:nth-child(3) { animation-delay: 0.6s; }
+.song-card:nth-child(4) { animation-delay: 0.8s; }
+
+.song-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 15px;
+  object-fit: cover;
+  margin: 0 auto 20px;
+  box-shadow: var(--shadow-medium);
+  transition: var(--transition-smooth);
+}
+
+.song-card:hover .song-image {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.song-name {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--white-text);
+  margin-bottom: 15px;
+}
+
+.spotify-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--spotify-green);
+  color: var(--white-text);
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-weight: 500;
+  transition: var(--transition-smooth);
+  box-shadow: var(--shadow-medium);
+}
+
+.spotify-btn:hover {
+  background-color: var(--spotify-hover);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: var(--shadow-heavy);
+}
+
+.spotify-icon {
+  width: 20px;
+  height: 20px;
+  background-color: var(--white-text);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--spotify-green);
+  font-weight: bold;
+}
+
+/* ===== VÍDEO PLAYER SECTION ===== */
+.video-section {
+    padding: 90px 0;
+    background-color: var(--dark-bg); /* Contraste com a seção de Músicas */
+    text-align: center;
+}
+
+/* Novo ícone para o título da seção de vídeo */
+.video-icon {
+    font-size: 2.5rem;
+    animation: bounce 2s infinite; /* Usa a animação existente */
+}
+
+.video-player-wrapper {
+    max-width: 800px; /* Tamanho médio, centralizado */
+    margin: 50px auto 0;
+    box-shadow: var(--shadow-heavy);
+    border-radius: 15px;
+    overflow: hidden; /* Garante que o raio de borda funcione no vídeo */
+    position: relative;
+    /* Para manter a proporção de 16:9 em todos os tamanhos */
+    padding-bottom: 45%; 
+    height: 0;
+}
+
+.artist-video-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 3px solid var(--primary-green); /* Adiciona a cor de destaque */
+    border-radius: 15px; /* Duplica o raio da borda para visual mais limpo */
+    transition: var(--transition-smooth);
+}
+
+.artist-video-player:focus {
+    outline: none;
+    box-shadow: 0 0 0 5px var(--light-green); /* Efeito de foco sutil */
+}
+
+/* Regra para o título ser consistente com as outras seções */
+.video-section .section-title {
+    margin-bottom: 50px;
+}
+
+/* Estilo para players nativos (alguns navegadores permitem estilizar) */
+.artist-video-player::-webkit-media-controls-panel {
+    background-color: rgba(42, 42, 42, 0.9); /* card-bg com transparência */
+    color: var(--white-text);
+}
+
+.artist-video-player::-webkit-media-controls-current-time-display,
+.artist-video-player::-webkit-media-controls-time-remaining-display {
+    color: var(--white-text);
+}
+
+.artist-video-player::-webkit-media-controls-play-button {
+    color: var(--primary-green);
+}
+
+/* Responsividade para manter a proporção em telas menores */
+@media (max-width: 850px) {
+    .video-player-wrapper {
+        max-width: 100%;
+        margin: 50px 20px 0; /* Adiciona margem lateral em telas menores */
+        padding-bottom: 56.25%; /* Padrão 16:9 para telas pequenas */
+    }
+}
+
+/* ===== GALLERY SECTION ===== */
+.gallery-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, var(--dark-bg) 0%, var(--card-bg) 100%);
+}
+
+/* ===== CAROUSEL ===== */
+.carousel-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto 30px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-heavy);
+}
+
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 350px;
+  max-height: 450px;
+  overflow: hidden;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  background: var(--dark-bg);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 100%;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  height: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 350px;
+  max-height: 450px;
+}
+
+.gallery-image {
+  max-width: 100%;
+  max-height: 420px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  border-radius: 10px;
+}
+
+.gallery-image:hover {
+  transform: scale(1.05);
+}
+
+/* Navigation Buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(76, 175, 80, 0.8);
+  color: var(--white-text);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-btn:hover {
+  background: var(--primary-green);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: var(--shadow-medium);
+}
+
+.carousel-btn-prev {
+  left: 20px;
+}
+
+.carousel-btn-next {
+  right: 20px;
+}
+
+/* Dots Indicator */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 10px 20px;
+  position: relative;
+  z-index: 15;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.carousel-dot.active {
+  background: var(--primary-green);
+  transform: scale(1.2);
+}
+
+.carousel-dot:hover {
+  background: rgba(76, 175, 80, 0.7);
+  transform: scale(1.1);
+}
+
+/* ===== THUMBNAIL GRID ===== */
+.thumbnail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 15px;
+  max-width: 800px;
+  margin: 25px auto 0;
+  padding: 0 20px;
+}
+
+.thumbnail-item {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  border: 3px solid transparent;
+  aspect-ratio: 1;
+}
+
+.thumbnail-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-medium);
+}
+
+.thumbnail-item.active {
+  border-color: var(--primary-green);
+  box-shadow: var(--shadow-medium);
+}
+
+.thumbnail-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-smooth);
+}
+
+.thumbnail-item:hover img {
+  transform: scale(1.1);
+}
+
+/* ===== MODAL ===== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+}
+
+.modal-content {
+  position: relative;
+  margin: auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 1000px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-image {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: var(--shadow-heavy);
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: var(--white-text);
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 2001;
+  transition: var(--transition-fast);
+}
+
+.modal-close:hover {
+  color: var(--primary-green);
+  transform: scale(1.2);
+}
+
+.modal-navigation {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.modal-nav-btn {
+  background: rgba(76, 175, 80, 0.8);
+  color: var(--white-text);
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 28px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-nav-btn:hover {
+  background: var(--primary-green);
+  transform: scale(1.1);
+  box-shadow: var(--shadow-medium);
+}
+
+/* ===== ANIMAÇÕES ===== */
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .artist-main-image {
+    width: 250px;
+    height: 250px;
+  }
+
+  .artist-name {
+    font-size: 2.5rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .songs-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .song-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .back-btn {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+
+  .logo-text {
+    display: none;
+  }
+
+  .carousel-wrapper {
+    height: 300px;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .carousel-btn-prev {
+    left: 10px;
+  }
+
+  .carousel-btn-next {
+    right: 10px;
+  }
+
+  .thumbnail-grid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 10px;
+  }
+
+  .modal-nav-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+
+  .modal-navigation {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .artist-main-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .artist-name {
+    font-size: 2rem;
+  }
+
+  .artist-genre {
+    font-size: 1.2rem;
+  }
+
+  .artist-bio {
+    font-size: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .carousel-wrapper {
+    height: 250px;
+  }
+
+  .carousel-container {
+    margin: 0 auto 30px;
+  }
+
+  .thumbnail-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+  }
+
+  .modal-close {
+    font-size: 30px;
+    top: 15px;
+    right: 25px;
+  }
+}
