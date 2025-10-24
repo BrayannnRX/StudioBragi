@@ -1,0 +1,547 @@
+/* ===== VARIÁVEIS CSS ===== */
+:root {
+  /* Paleta de Cores Principal */
+  --primary-green: #4CAF50;
+  --light-green: #66BB6A;
+  --dark-green: #388E3C;
+  
+  /* Cores de Fundo */
+  --dark-bg: #1a1a1a;
+  --card-bg: #2a2a2a;
+  --overlay-bg: rgba(0, 0, 0, 0.7);
+  
+  /* Cores de Texto */
+  --white-text: #ffffff;
+  --gray-text: #cccccc;
+  --light-gray-text: #999999;
+  
+  /* Cores de Botão */
+  --btn-primary: var(--primary-green);
+  --btn-primary-hover: var(--light-green);
+  --btn-secondary: transparent;
+  --btn-secondary-border: var(--primary-green);
+  
+  /* WhatsApp */
+  --whatsapp-green: #25D366;
+  --whatsapp-hover: #20BA5A;
+  
+  /* Sombras e Efeitos */
+  --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.2);
+  --shadow-heavy: 0 8px 30px rgba(0, 0, 0, 0.3);
+  
+  /* Transições */
+  --transition-smooth: all 0.3s ease;
+  --transition-fast: all 0.2s ease;
+}
+
+/* ===== RESET E BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--dark-bg);
+  color: var(--white-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== HEADER ===== */
+.header {
+  background-color: var(--primary-green);
+  padding: 15px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow-medium);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.microphone-icon {
+  font-size: 24px;
+  transform: rotate(-10deg);
+}
+
+.logo-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--white-text);
+}
+
+/* ===== SOCIAL LINKS ===== */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--btn-secondary);
+  border: 2px solid var(--btn-secondary-border);
+  color: var(--white-text);
+  padding: 8px 15px;
+  border-radius: 30px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+  box-shadow: var(--shadow-light);
+}
+
+.social-btn:hover {
+  background-color: var(--primary-green);
+  color: var(--white-text);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-medium);
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  transition: var(--transition-fast);
+}
+
+.social-btn:hover .social-icon {
+  transform: scale(1.1);
+  filter: brightness(1);
+}
+
+@media (max-width: 768px) {
+  .social-links {
+    gap: 10px;
+  }
+
+  .social-btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+
+  .social-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .social-links {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .social-btn {
+    padding: 8px 14px;
+  }
+}
+
+
+/* ===== HERO SECTION ===== */
+.hero {
+  height: 80vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-background {
+  background-image: url("StudioBragi\ logo.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--overlay-bg);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  text-align: center;
+  max-width: 800px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  animation: fadeInUp 1s ease-out;
+}
+
+/* ===== SECTIONS ===== */
+.artists-section {
+  padding: 80px 0;
+  width: 100%;
+}
+
+.contact-section {
+  padding: 80px 0;
+  background: transparent;
+  text-align: center;
+  width: 100%;
+  clear: both; /* Força a seção a ficar abaixo de elementos flutuantes */
+  display: block; /* Garante que seja um bloco separado */
+  border-top: 2px solid var(--primary-green);
+  margin-top: 0; /* Remove margem que pode causar problemas */
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--primary-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.music-note-icon,
+.contact-icon {
+  font-size: 2rem;
+}
+
+/* ===== ARTISTS GRID ===== */
+/* ===== ARTISTS GRID ===== */
+.artists-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.artist-card {
+  background-color: var(--card-bg);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: var(--shadow-medium);
+  transition: var(--transition-smooth);
+  cursor: pointer;
+  width: 100%;
+}
+
+.artist-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-heavy);
+  border: 2px solid var(--primary-green);
+}
+
+.artist-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.artist-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%; /* Padrão global */
+  transition: var(--transition-smooth);
+}
+
+.artist-card:hover .artist-image img {
+  transform: scale(1.1);
+}
+
+.artist-info {
+  padding: 25px;
+}
+
+.artist-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--white-text);
+}
+
+.artist-genre {
+  color: var(--gray-text);
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.artist-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ===== AJUSTES INDIVIDUAIS DE IMAGEM ===== */
+
+/* Mc Raymel */
+.raymel-img img {
+  object-position: center 20%; /* ajuste para alinhar melhor */
+}
+
+/* Lynna */
+.lynna-img img {
+  object-position: center 30%;
+}
+
+/* Viktor Souza */
+.viktor-img img {
+  object-position: center 20%;
+}
+
+/* Eliezio */
+.eliezio-img img {
+  object-position: center 8%;
+}
+
+/* Danit */
+.danit-img img {
+  object-position: center 20%;
+}
+
+
+/* ===== BUTTONS ===== */
+.btn-primary,
+.btn-secondary {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  font-size: 0.9rem;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--btn-primary);
+  color: var(--white-text);
+}
+
+.btn-primary:hover {
+  background-color: var(--btn-primary-hover);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: var(--btn-secondary);
+  color: var(--primary-green);
+  border: 2px solid var(--btn-secondary-border);
+}
+
+.btn-secondary:hover {
+  background-color: var(--primary-green);
+  color: var(--white-text);
+}
+
+/* ===== WHATSAPP BUTTON ===== */
+.contact-content {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-description {
+  font-size: 1.1rem;
+  color: var(--gray-text);
+  margin-bottom: 30px;
+  line-height: 1.8;
+}
+
+.whatsapp-btn {
+  background-color: var(--whatsapp-green);
+  color: var(--white-text);
+  border: none;
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: var(--shadow-medium);
+}
+
+.whatsapp-btn:hover {
+  background-color: var(--whatsapp-hover);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-heavy);
+}
+
+.whatsapp-icon {
+  font-size: 1.3rem;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.artist-card {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.artist-card:nth-child(1) { animation-delay: 0.1s; }
+.artist-card:nth-child(2) { animation-delay: 0.2s; }
+.artist-card:nth-child(3) { animation-delay: 0.3s; }
+.artist-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+    padding: 0 20px;
+  }
+  
+  .section-header h2 {
+    font-size: 2rem;
+  }
+  
+  .artists-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .artist-buttons {
+    justify-content: center;
+  }
+  
+  .logo-text {
+    font-size: 16px;
+  }
+  
+  .artists-section,
+  .contact-section {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .section-header h2 {
+    font-size: 1.8rem;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .whatsapp-btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+}
+
+/* ===== FOOTER ===== */
+.footer-simple {
+    background-color: var(--card-bg); /* Fundo escuro sutilmente diferente do body */
+    border-top: 3px solid var(--primary-green);
+}
+
+.footer-content-wrapper {
+    padding: 40px 20px; /* Espaçamento da seção superior */
+    text-align: center; /* Centraliza o conteúdo (logo e slogan) */
+}
+
+.footer-col-main {
+    max-width: 400px; /* Limita a largura para melhor visualização do slogan */
+    margin: 0 auto;
+}
+
+/* Estilo do Logo (Reutiliza classes do Header, mas ajusta o tamanho) */
+.footer-logo {
+    margin-bottom: 10px;
+    justify-content: center; /* Centraliza o logo flexbox */
+}
+
+.footer-logo .logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.footer-slogan {
+    color: var(--gray-text);
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+/* Rodapé Inferior (Direitos Autorais) */
+.footer-bottom {
+    background-color: var(--dark-bg); /* Fundo ainda mais escuro para a barra inferior */
+    padding: 15px 20px;
+    text-align: center;
+}
+
+.footer-copyright {
+    font-size: 0.85rem;
+    color: var(--light-gray-text);
+    margin: 0;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .footer-content-wrapper {
+        padding: 30px 20px;
+    }
+}
+
+/* ===== SCROLL SUAVE ===== */
+html {
+  scroll-behavior: smooth;
+}
