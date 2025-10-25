@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // 1. Defina o número de telefone e a mensagem
-    const numeroWhatsapp = '5521973585882'; 
+    const numeroWhatsapp = '5521987252542'; 
     const mensagemPadrao = 'Olá! Gostaria de saber mais informações sobre os artistas e shows.';
 
     // 2. Codifica a mensagem para o formato URL
