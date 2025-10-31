@@ -501,12 +501,63 @@ html {
     letter-spacing: 0.5px;
 }
 
-/* ===== ANIMATIONS E RESPONSIVE (Ajustados) ===== */
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-/* ... (Mantenha o restante das animações e media queries) ... */
-
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  /* ... (Ajustes de responsividade existentes e novos) ... */
+  .header {
+    padding: 12px 0;
+    background-color: rgba(31, 31, 31, 0.98);
+    backdrop-filter: blur(10px);
+  }
+
+  .header-content {
+    padding: 0 15px;
+  }
+
+  .logo {
+    gap: 8px;
+  }
+
+  .microphone-icon {
+    font-size: 22px;
+  }
+
+  .logo-text {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .social-links {
+    gap: 10px;
+  }
+
+  .social-btn {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    gap: 6px;
+  }
+
+  .social-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .hero {
+    height: 85vh;
+    padding-top: 60px;
+  }
+
   .hero-title {
     font-size: 3rem; 
     padding: 0 20px;
@@ -514,6 +565,12 @@ html {
   
   .section-header h2 {
     font-size: 2.2rem;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .section-header p {
+    font-size: 1rem;
   }
   
   .artist-image {
@@ -523,15 +580,109 @@ html {
   .artists-section .container {
     padding: 20px; /* Menos padding no mobile */
   }
+
+  .artists-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .contact-description {
+    font-size: 1.1rem;
+  }
+
+  .whatsapp-btn {
+    padding: 12px 35px;
+    font-size: 1.1rem;
+  }
 }
 
 @media (max-width: 480px) {
-  /* ... (Ajustes de responsividade existentes e novos) ... */
+  .header {
+    padding: 10px 0;
+  }
+
+  .header-content {
+    padding: 0 12px;
+  }
+
+  .logo {
+    gap: 6px;
+  }
+
+  .microphone-icon {
+    font-size: 20px;
+  }
+
+  .logo-text {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .social-links {
+    gap: 8px;
+  }
+
+  .social-btn {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    gap: 5px;
+  }
+
+  .social-btn span {
+    display: none; /* Esconde o texto dos botões, mantém apenas os ícones */
+  }
+
+  .social-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .hero {
+    height: 80vh;
+    padding-top: 55px;
+  }
+
   .hero-title {
     font-size: 2.5rem;
+    padding: 0 15px;
   }
   
   .section-header h2 {
     font-size: 1.9rem;
+  }
+
+  .section-header p {
+    font-size: 0.95rem;
+    padding: 0 10px;
+  }
+
+  .artist-image {
+    height: 180px;
+  }
+
+  .artists-section .container {
+    padding: 15px;
+  }
+
+  .contact-description {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .whatsapp-btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+
+  .whatsapp-icon {
+    font-size: 1.3rem;
+  }
+
+  .footer-logo .logo-text {
+    font-size: 1.5rem;
+  }
+
+  .footer-slogan {
+    font-size: 0.95rem;
   }
 }

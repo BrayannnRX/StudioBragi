@@ -732,6 +732,40 @@ html {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
+  .header {
+    padding: 12px 0;
+    background-color: rgba(31, 31, 31, 0.98);
+    backdrop-filter: blur(10px);
+  }
+
+  .header-content {
+    padding: 0 15px;
+  }
+
+  .logo {
+    gap: 8px;
+  }
+
+  .microphone-icon {
+    font-size: 22px;
+  }
+
+  .logo-text {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .back-btn {
+    padding: 10px 18px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-width: 2px;
+  }
+
+  .artist-hero {
+    padding-top: 90px;
+  }
+
   .artist-main-image {
     width: 250px;
     height: 250px;
@@ -747,6 +781,7 @@ html {
 
   .artist-bio {
     font-size: 1rem;
+    padding: 0 15px;
   }
 
   .section-title {
@@ -763,15 +798,6 @@ html {
   .song-image {
     width: 140px;
     height: 140px;
-  }
-
-  .back-btn {
-    padding: 8px 15px;
-    font-size: 0.9rem;
-  }
-
-  .logo-text {
-    font-size: 1rem;
   }
 
   .carousel-wrapper {
@@ -823,6 +849,37 @@ html {
 }
 
 @media (max-width: 480px) {
+  .header {
+    padding: 10px 0;
+  }
+
+  .header-content {
+    padding: 0 12px;
+  }
+
+  .logo {
+    gap: 6px;
+  }
+
+  .microphone-icon {
+    font-size: 20px;
+  }
+
+  .logo-text {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .back-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    gap: 6px;
+  }
+
+  .artist-hero {
+    padding-top: 80px;
+  }
+
   .artist-main-image {
     width: 200px;
     height: 200px;
@@ -838,6 +895,7 @@ html {
 
   .artist-bio {
     font-size: 0.95rem;
+    padding: 0 10px;
   }
 
   .section-title {
@@ -871,9 +929,5 @@ html {
     font-size: 35px;
     top: 15px;
     right: 25px;
-  }
-
-  .logo-text {
-    display: none;
   }
 }
