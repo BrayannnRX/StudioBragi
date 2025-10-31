@@ -1,38 +1,38 @@
-/* ===== VARIÁVEIS CSS ===== */
+/* ===== VARIÁVEIS CSS (MANTIDAS, MAS COM USO OTIMIZADO) ===== */
 :root {
   /* Paleta de Cores Principal */
-  --primary-green: #4CAF50;
-  --light-green: #66BB6A;
-  --dark-green: #388E3C;
+  --primary-green: #00A859; /* Verde mais sofisticado e corporativo */
+  --light-green: #33C67C;
+  --dark-green: #007A40;
   
   /* Cores de Fundo */
-  --dark-bg: #1a1a1a;
-  --card-bg: #2a2a2a;
-  --overlay-bg: rgba(0, 0, 0, 0.7);
+  --dark-bg: #121212; /* Fundo mais escuro e elegante */
+  --card-bg: #1F1F1F; /* Fundo do card mais escuro */
+  --overlay-bg: rgba(18, 18, 18, 0.85); /* Overlay sutil para legibilidade */
   
   /* Cores de Texto */
   --white-text: #ffffff;
-  --gray-text: #cccccc;
-  --light-gray-text: #999999;
+  --gray-text: #B0B0B0; /* Cinza claro suave */
+  --light-gray-text: #888888;
   
   /* Cores de Botão */
   --btn-primary: var(--primary-green);
-  --btn-primary-hover: var(--light-green);
+  --btn-primary-hover: var(--dark-green);
   --btn-secondary: transparent;
   --btn-secondary-border: var(--primary-green);
   
   /* WhatsApp */
   --whatsapp-green: #25D366;
-  --whatsapp-hover: #20BA5A;
+  --whatsapp-hover: #1DBB57;
   
   /* Sombras e Efeitos */
-  --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.1);
-  --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.2);
-  --shadow-heavy: 0 8px 30px rgba(0, 0, 0, 0.3);
+  --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.2);
+  --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.4);
+  --shadow-heavy: 0 12px 35px rgba(0, 0, 0, 0.6);
   
   /* Transições */
-  --transition-smooth: all 0.3s ease;
-  --transition-fast: all 0.2s ease;
+  --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Curva de transição mais profissional */
+  --transition-fast: all 0.2s ease-out;
 }
 
 /* ===== RESET E BASE ===== */
@@ -43,11 +43,16 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  /* GARANTA que a fonte 'Inter' esteja linkada no seu HTML */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   background-color: var(--dark-bg);
   color: var(--white-text);
   line-height: 1.6;
   overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 .container {
@@ -58,14 +63,15 @@ body {
 
 /* ===== HEADER ===== */
 .header {
-  background-color: var(--primary-green);
+  background-color: var(--card-bg); /* Fundo sutilmente escuro para a barra */
   padding: 15px 0;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  box-shadow: var(--shadow-medium);
+  box-shadow: var(--shadow-medium); /* Sombra mais destacada */
+  border-bottom: 2px solid var(--primary-green); /* Detalhe verde na parte inferior */
 }
 
 .logo {
@@ -76,16 +82,18 @@ body {
 
 .microphone-icon {
   font-size: 24px;
+  color: var(--primary-green); /* Ícone com cor de destaque */
   transform: rotate(-10deg);
 }
 
 .logo-text {
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 1.25rem; /* Tamanho ajustado */
+  font-weight: 700;
   color: var(--white-text);
+  letter-spacing: 0.5px;
 }
 
-/* ===== SOCIAL LINKS ===== */
+/* ===== SOCIAL LINKS (Refinados) ===== */
 .header-content {
   display: flex;
   justify-content: space-between;
@@ -103,71 +111,41 @@ body {
   align-items: center;
   gap: 8px;
   background-color: var(--btn-secondary);
-  border: 2px solid var(--btn-secondary-border);
+  border: 2px solid var(--primary-green); /* Borda primária */
   color: var(--white-text);
-  padding: 8px 15px;
-  border-radius: 30px;
+  padding: 6px 14px; /* Ajuste no padding */
+  border-radius: 5px; /* Borda mais quadrada e moderna */
   font-weight: 500;
   text-decoration: none;
   transition: var(--transition-smooth);
-  box-shadow: var(--shadow-light);
+  box-shadow: none; /* Remoção de sombra aqui */
 }
 
 .social-btn:hover {
   background-color: var(--primary-green);
-  color: var(--white-text);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-medium);
+  color: var(--dark-bg); /* Texto escuro no hover para contraste */
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-light);
 }
 
 .social-icon {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   object-fit: contain;
   transition: var(--transition-fast);
+  filter: invert(1); /* Garante que o ícone seja claro, se necessário */
 }
 
 .social-btn:hover .social-icon {
-  transform: scale(1.1);
-  filter: brightness(1);
-}
-
-@media (max-width: 768px) {
-  .social-links {
-    gap: 10px;
-  }
-
-  .social-btn {
-    padding: 6px 12px;
-    font-size: 0.85rem;
-  }
-
-  .social-icon {
-    width: 18px;
-    height: 18px;
-  }
-}
-
-@media (max-width: 600px) {
-  .header-content {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .social-links {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .social-btn {
-    padding: 8px 14px;
-  }
+  transform: scale(1.05);
+  filter: brightness(0) invert(0); /* Garante que o ícone seja escuro no hover */
 }
 
 
-/* ===== HERO SECTION ===== */
+/* ===== HERO SECTION (Mantida a base) ===== */
 .hero {
-  height: 80vh;
+  height: 90vh; /* Altura ligeiramente maior */
+  padding-top: 70px; /* Espaço para o header fixo */
   position: relative;
   display: flex;
   align-items: center;
@@ -176,7 +154,8 @@ body {
 }
 
 .hero-background {
-  background-image: url("StudioBragi\ logo.jpg");
+  /* Certifique-se que o caminho da imagem está correto */
+  background-image: url("StudioBragi logo.jpg"); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -185,7 +164,8 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1;
+  z-index: 1; /* Z-index menor */
+  filter: grayscale(10%) blur(1px); /* Efeito sutil para profissionalismo */
 }
 
 .hero-overlay {
@@ -194,7 +174,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--overlay-bg);
+  background: rgba(0, 0, 0, 0.7); /* Overlay um pouco mais escuro */
   z-index: 2;
   display: flex;
   align-items: center;
@@ -202,40 +182,74 @@ body {
 }
 
 .hero-title {
-  font-size: 3.5rem;
-  font-weight: 700;
+  font-size: 4rem; /* Título maior */
+  font-weight: 800;
   text-align: center;
-  max-width: 800px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  max-width: 900px;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
   animation: fadeInUp 1s ease-out;
+  letter-spacing: 1px;
+  z-index: 3;
 }
 
-/* ===== SECTIONS ===== */
+/* ===== ARTISTS SECTION (NOVO PARALLAX) ===== */
 .artists-section {
   padding: 80px 0;
-  width: 100%;
+  position: relative;
+  overflow: hidden; /* Importante para conter o parallax */
+  text-align: center;
+  background-color: var(--dark-bg); /* Fundo padrão */
 }
 
+/* Camada de fundo para o efeito parallax */
+.artists-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("FundoArtist.png"); 
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Reativado para o efeito parallax */
+  opacity: 0.15; /* Sutil background para um visual mais profissional */
+  z-index: 0;
+  /* Garante que o background cubra a área da seção */
+  /* Ajuste a altura se o seu parallax estiver "cortando" a imagem */
+  min-height: 100%; /* Ajuste aqui se necessário para cobrir toda a altura da seção */
+}
+
+.artists-section .container {
+  position: relative;
+  z-index: 1; /* Garante que o conteúdo fique acima do fundo sutil */
+  /* Adiciona um background ao container para cobrir o fundo parallax onde está o conteúdo */
+   /* Mesma cor do body para um efeito "flutuante" */
+  padding: 40px; /* Padding interno para o conteúdo, ajusta conforme necessário */
+  /* Sombra para destacar o container do fundo */
+  margin-bottom: 20px; /* Espaço abaixo do container */
+}
+
+/* ===== CONTACT SECTION (Refinado) ===== */
 .contact-section {
   padding: 80px 0;
-  background: transparent;
+  background-color: var(--card-bg); /* Fundo um pouco mais claro para destacar */
   text-align: center;
-  width: 100%;
-  clear: both; /* Força a seção a ficar abaixo de elementos flutuantes */
-  display: block; /* Garante que seja um bloco separado */
-  border-top: 2px solid var(--primary-green);
-  margin-top: 0; /* Remove margem que pode causar problemas */
+  border-top: 3px solid var(--primary-green); /* Borda mais grossa e limpa */
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
 .section-header h2 {
-  font-size: 2.5rem;
-  font-weight: 600;
-  color: var(--primary-green);
+  font-size: 2.8rem; /* Título maior e impactante */
+  font-weight: 700;
+  color: var(--white-text);
+  letter-spacing: 1px;
+  text-transform: uppercase;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -244,39 +258,47 @@ body {
 
 .music-note-icon,
 .contact-icon {
-  font-size: 2rem;
+  font-size: 2.5rem;
+  color: var(--primary-green); /* Ícones em verde destaque */
 }
 
-/* ===== ARTISTS GRID ===== */
-/* ===== ARTISTS GRID ===== */
+/* Subtítulo da seção de artistas (Adicionado) */
+.section-header p {
+    color: var(--gray-text);
+    font-size: 1.1rem;
+    margin-top: 10px;
+    font-weight: 300;
+}
+
+/* ===== ARTISTS GRID (Otimizado) ===== */
 .artists-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
   margin-top: 40px;
   width: 100%;
-  margin-bottom: 0;
 }
 
 .artist-card {
   background-color: var(--card-bg);
-  border-radius: 15px;
+  border-radius: 10px; /* Borda mais suave */
   overflow: hidden;
-  box-shadow: var(--shadow-medium);
+  box-shadow: var(--shadow-light);
   transition: var(--transition-smooth);
   cursor: pointer;
-  width: 100%;
+  position: relative;
+  border: 1px solid transparent; /* Adicionado para transição de borda */
 }
 
 .artist-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-8px); /* Efeito de elevação mais sutil */
   box-shadow: var(--shadow-heavy);
-  border: 2px solid var(--primary-green);
+  border-color: var(--primary-green); /* Borda de destaque no hover */
 }
 
 .artist-image {
   width: 100%;
-  height: 200px;
+  height: 250px; /* Altura maior para as imagens */
   overflow: hidden;
   position: relative;
 }
@@ -285,42 +307,46 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 20%; /* Padrão global */
   transition: var(--transition-smooth);
+  filter: brightness(0.95); /* Imagem um pouco mais escura */
 }
 
 .artist-card:hover .artist-image img {
-  transform: scale(1.1);
+  transform: scale(1.05); /* Zoom mais sutil */
+  filter: brightness(1.05); /* Clareia um pouco no hover */
 }
 
 .artist-info {
   padding: 25px;
+  text-align: left;
 }
 
 .artist-name {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 8px;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 5px;
   color: var(--white-text);
+  letter-spacing: 0.5px;
 }
 
 .artist-genre {
-  color: var(--gray-text);
+  color: var(--primary-green); /* Gênero em cor de destaque */
   margin-bottom: 20px;
-  font-size: 0.95rem;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .artist-buttons {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
-/* ===== AJUSTES INDIVIDUAIS DE IMAGEM ===== */
+/* ===== AJUSTES INDIVIDUAIS DE IMAGEM (Mantidos) ===== */
 
 /* Mc Raymel */
 .raymel-img img {
-  object-position: center 20%; /* ajuste para alinhar melhor */
+  object-position: center 20%;
 }
 
 /* Lynna */
@@ -344,43 +370,47 @@ body {
 }
 
 
-/* ===== BUTTONS ===== */
+/* ===== BUTTONS (Refinados) ===== */
 .btn-primary,
 .btn-secondary {
-  padding: 10px 20px;
+  padding: 12px 22px; /* Padding ajustado */
   border: none;
-  border-radius: 25px;
-  font-weight: 500;
+  border-radius: 5px; /* Borda mais quadrada */
+  font-weight: 600;
   cursor: pointer;
-  transition: var(--transition-fast);
-  font-size: 0.9rem;
+  transition: var(--transition-smooth);
+  font-size: 0.95rem;
   text-decoration: none;
   display: inline-block;
   text-align: center;
+  letter-spacing: 0.5px;
 }
 
 .btn-primary {
   background-color: var(--btn-primary);
   color: var(--white-text);
+  box-shadow: var(--shadow-light);
 }
 
 .btn-primary:hover {
   background-color: var(--btn-primary-hover);
-  transform: translateY(-2px);
+  transform: translateY(-1px); /* Movimento mais sutil */
+  box-shadow: var(--shadow-medium);
 }
 
 .btn-secondary {
-  background-color: var(--btn-secondary);
+  background-color: var(--card-bg); /* Fundo escuro */
   color: var(--primary-green);
-  border: 2px solid var(--btn-secondary-border);
+  border: 1px solid var(--primary-green); /* Borda mais fina */
 }
 
 .btn-secondary:hover {
   background-color: var(--primary-green);
-  color: var(--white-text);
+  color: var(--dark-bg); /* Texto escuro no hover */
+  border-color: var(--primary-green);
 }
 
-/* ===== WHATSAPP BUTTON ===== */
+/* ===== WHATSAPP BUTTON (Profissionalizado) ===== */
 .contact-content {
   text-align: center;
   max-width: 600px;
@@ -388,160 +418,120 @@ body {
 }
 
 .contact-description {
-  font-size: 1.1rem;
+  font-size: 1.2rem; /* Texto maior */
   color: var(--gray-text);
-  margin-bottom: 30px;
-  line-height: 1.8;
+  margin-bottom: 35px;
+  line-height: 1.7;
 }
 
 .whatsapp-btn {
   background-color: var(--whatsapp-green);
   color: var(--white-text);
   border: none;
-  padding: 15px 40px;
-  border-radius: 50px;
-  font-size: 1.1rem;
-  font-weight: 600;
+  padding: 15px 45px;
+  border-radius: 5px; /* Borda mais quadrada */
+  font-size: 1.2rem;
+  font-weight: 700;
   cursor: pointer;
   transition: var(--transition-smooth);
   display: inline-flex;
   align-items: center;
   gap: 10px;
   box-shadow: var(--shadow-medium);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .whatsapp-btn:hover {
   background-color: var(--whatsapp-hover);
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   box-shadow: var(--shadow-heavy);
 }
 
 .whatsapp-icon {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 }
 
-/* ===== ANIMATIONS ===== */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* ===== FOOTER (Aprimorado) ===== */
+.footer-simple {
+    background-color: var(--card-bg); 
+    border-top: 4px solid var(--primary-green);
 }
 
-.artist-card {
-  animation: fadeInUp 0.6s ease-out forwards;
+.footer-content-wrapper {
+    padding: 40px 20px; 
+    text-align: center; 
 }
 
-.artist-card:nth-child(1) { animation-delay: 0.1s; }
-.artist-card:nth-child(2) { animation-delay: 0.2s; }
-.artist-card:nth-child(3) { animation-delay: 0.3s; }
-.artist-card:nth-child(4) { animation-delay: 0.4s; }
+.footer-col-main {
+    max-width: 500px; 
+    margin: 0 auto;
+}
 
-/* ===== RESPONSIVE ===== */
+.footer-logo {
+    margin-bottom: 10px;
+    justify-content: center; 
+    opacity: 0.8; /* Suaviza o logo no footer */
+}
+
+.footer-logo .logo-text {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--gray-text);
+}
+
+.footer-slogan {
+    color: var(--light-gray-text);
+    font-size: 1.05rem;
+    margin-bottom: 0;
+    font-weight: 300;
+}
+
+.footer-bottom {
+    background-color: var(--dark-bg); 
+    padding: 18px 20px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-copyright {
+    font-size: 0.8rem;
+    color: var(--light-gray-text);
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+/* ===== ANIMATIONS E RESPONSIVE (Ajustados) ===== */
+
+/* ... (Mantenha o restante das animações e media queries) ... */
+
 @media (max-width: 768px) {
+  /* ... (Ajustes de responsividade existentes e novos) ... */
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 3rem; 
     padding: 0 20px;
   }
   
   .section-header h2 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
   
-  .artists-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .artist-image {
+    height: 200px; /* Reduz altura da imagem no mobile */
   }
-  
-  .artist-buttons {
-    justify-content: center;
-  }
-  
-  .logo-text {
-    font-size: 16px;
-  }
-  
-  .artists-section,
-  .contact-section {
-    padding: 60px 0;
+
+  .artists-section .container {
+    padding: 20px; /* Menos padding no mobile */
   }
 }
 
 @media (max-width: 480px) {
+  /* ... (Ajustes de responsividade existentes e novos) ... */
   .hero-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
   
   .section-header h2 {
-    font-size: 1.8rem;
-    flex-direction: column;
-    gap: 10px;
+    font-size: 1.9rem;
   }
-  
-  .whatsapp-btn {
-    padding: 12px 30px;
-    font-size: 1rem;
-  }
-}
-
-/* ===== FOOTER ===== */
-.footer-simple {
-    background-color: var(--card-bg); /* Fundo escuro sutilmente diferente do body */
-    border-top: 3px solid var(--primary-green);
-}
-
-.footer-content-wrapper {
-    padding: 40px 20px; /* Espaçamento da seção superior */
-    text-align: center; /* Centraliza o conteúdo (logo e slogan) */
-}
-
-.footer-col-main {
-    max-width: 400px; /* Limita a largura para melhor visualização do slogan */
-    margin: 0 auto;
-}
-
-/* Estilo do Logo (Reutiliza classes do Header, mas ajusta o tamanho) */
-.footer-logo {
-    margin-bottom: 10px;
-    justify-content: center; /* Centraliza o logo flexbox */
-}
-
-.footer-logo .logo-text {
-    font-size: 1.5rem;
-    font-weight: 700;
-}
-
-.footer-slogan {
-    color: var(--gray-text);
-    font-size: 0.95rem;
-    margin-bottom: 0;
-}
-
-/* Rodapé Inferior (Direitos Autorais) */
-.footer-bottom {
-    background-color: var(--dark-bg); /* Fundo ainda mais escuro para a barra inferior */
-    padding: 15px 20px;
-    text-align: center;
-}
-
-.footer-copyright {
-    font-size: 0.85rem;
-    color: var(--light-gray-text);
-    margin: 0;
-}
-
-/* Responsividade */
-@media (max-width: 600px) {
-    .footer-content-wrapper {
-        padding: 30px 20px;
-    }
-}
-
-/* ===== SCROLL SUAVE ===== */
-html {
-  scroll-behavior: smooth;
 }
