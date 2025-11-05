@@ -3,7 +3,7 @@
 class ArtistGallery {
     constructor() {
         this.currentSlide = 0;
-        this.totalSlides = 14;
+        this.totalSlides = 18;
         this.autoSlideInterval = null;
         this.autoSlideDelay = 5000; // 5 seconds
         

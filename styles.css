@@ -143,8 +143,8 @@ html {
 
 /* ===== HERO SECTION (Mantida a base) ===== */
 .hero {
-  height: 90vh; /* Altura ligeiramente maior */
-  padding-top: 70px; /* Espaço para o header fixo */
+  height: 90vh;
+  padding-top: 70px;
   position: relative;
   display: flex;
   align-items: center;
@@ -153,7 +153,6 @@ html {
 }
 
 .hero-background {
-  /* Certifique-se que o caminho da imagem está correto */
   background-image: url("imgs_principais/StudioBragi_logo.jpg"); 
   background-size: cover;
   background-position: center;
@@ -163,7 +162,7 @@ html {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1; /* Z-index menor */
+  z-index: 1;
 }
 
 .hero-overlay {
@@ -174,23 +173,71 @@ html {
   height: 100%;
   z-index: 2;
   display: flex;
-  align-items: center;
+  align-items: flex-end; 
   justify-content: center;
+  padding-bottom: 8vh; 
 }
 
+/* Estilo Padrão para Desktop */
 .hero-title {
-  font-size: 2.5rem;
-  margin-top: 420px;
-  font-weight: 800;
+  font-family: 'Nova Fonte', sans-serif; 
+  font-size: 3rem; 
+  font-weight: 900;
   text-align: center;
-  max-width: 800px;
-  color: #ffffff; /* branco sólido */
-  text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.6); /* sombra suave e realista */
+  max-width: 900px; 
+  color: #ffffff;
+  text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.7); 
   animation: fadeInUp 1.5s ease-out;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
   text-transform: uppercase;
   z-index: 3;
-  line-height: 1.4;
+  line-height: 1.2;
+  padding: 0 20px;
+  margin-top: 0;
+}
+
+/* 📱 Media Query para Tablets e Mobile (até 768px) */
+@media (max-width: 768px) {
+  .hero-background {
+    background-position: center top; /* Mostra a parte superior da imagem */
+  }
+  
+  .hero-overlay {
+    padding-bottom: 6vh; 
+  }
+  
+  .hero-title {
+    font-size: 1.8rem !important;
+    letter-spacing: 2px;
+    padding: 0 10px;
+    max-width: 90%; 
+    line-height: 1.1; 
+  }
+}
+
+/* 📱 Media Query para Smartphones (até 480px) */
+@media (max-width: 480px) {
+  .hero-background {
+    background-position: center top; /* Garante que a logo apareça */
+  }
+  
+  .hero-overlay {
+    padding-bottom: 5vh; 
+  }
+
+  .hero-title {
+    font-size: 1.6rem !important;
+    letter-spacing: 1px;
+    padding: 0 8px;
+  }
+}
+
+/* 📱 Media Query para telas extra pequenas (até 360px) */
+@media (max-width: 360px) {
+  .hero-title {
+    font-size: 1.4rem !important;
+    letter-spacing: 0.5px;
+  }
 }
 
 

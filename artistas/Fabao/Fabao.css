@@ -156,6 +156,7 @@ html {
   height: 320px;
   border-radius: 50%;
   object-fit: cover;
+   object-position: center 30%; /*Ajuste da altura da imagem*/
   border: 4px solid var(--primary-green);
   box-shadow: var(--shadow-heavy);
   position: relative;
