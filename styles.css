@@ -226,7 +226,7 @@ html {
   }
 
   .hero-title {
-    font-size: 1.6rem !important;
+    font-size: 2rem !important;
     letter-spacing: 1px;
     padding: 0 8px;
   }
@@ -235,7 +235,7 @@ html {
 /* 📱 Media Query para telas extra pequenas (até 360px) */
 @media (max-width: 360px) {
   .hero-title {
-    font-size: 1.4rem !important;
+    font-size: 1.8rem !important;
     letter-spacing: 0.5px;
   }
 }
