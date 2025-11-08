@@ -22,8 +22,8 @@
   --btn-secondary-border: var(--primary-green);
   
   /* WhatsApp */
-  --whatsapp-green: #25D366;
-  --whatsapp-hover: #1DBB57;
+  --whatsapp-green: #0fa346;
+  --whatsapp-hover: #0a3d1d;
   
   /* Sombras e Efeitos */
   --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -359,17 +359,10 @@ html {
   font-weight: 700;
   color: var(--white-text);
   letter-spacing: 1px;
-  text-transform: uppercase;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 15px;
-}
-
-.music-note-icon,
-.contact-icon {
-  font-size: 2.5rem;
-  color: var(--primary-green); /* Ícones em verde destaque */
 }
 
 /* Subtítulo da seção de artistas (Adicionado) */
@@ -577,8 +570,11 @@ html {
 }
 
 .whatsapp-icon {
-  font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
 }
+
 
 /* ===== FOOTER (Aprimorado) ===== */
 .footer-simple {
