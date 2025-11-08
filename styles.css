@@ -333,12 +333,12 @@ html {
 
 .artists-section .container {
   position: relative;
-  z-index: 1; /* Garante que o conteúdo fique acima do fundo sutil */
-  /* Adiciona um background ao container para cobrir o fundo parallax onde está o conteúdo */
-   /* Mesma cor do body para um efeito "flutuante" */
-  padding: 40px; /* Padding interno para o conteúdo, ajusta conforme necessário */
-  /* Sombra para destacar o container do fundo */
-  margin-bottom: 20px; /* Espaço abaixo do container */
+  z-index: 1;
+  padding: 40px;
+
+  /* CORREÇÃO IMPORTANTE */
+  max-width: 1400px;   /* largura igual do layout desejado */
+  margin: 0 auto;      /* centraliza */
 }
 
 /* ===== CONTACT SECTION (Refinado) ===== */
@@ -383,32 +383,46 @@ html {
 /* ===== ARTISTS GRID (Otimizado) ===== */
 .artists-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr); /* Sempre 3 por linha */
   gap: 30px;
   margin-top: 40px;
   width: 100%;
 }
 
+/* Responsivo: tablets (2 por linha) */
+@media (max-width: 900px) {
+  .artists-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Responsivo: mobile (1 por linha) */
+@media (max-width: 600px) {
+  .artists-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .artist-card {
   background-color: var(--card-bg);
-  border-radius: 10px; /* Borda mais suave */
+  border-radius: 10px;
   overflow: hidden;
   box-shadow: var(--shadow-light);
   transition: var(--transition-smooth);
   cursor: pointer;
   position: relative;
-  border: 1px solid transparent; /* Adicionado para transição de borda */
+  border: 1px solid transparent;
 }
 
 .artist-card:hover {
-  transform: translateY(-8px); /* Efeito de elevação mais sutil */
+  transform: translateY(-8px);
   box-shadow: var(--shadow-heavy);
-  border-color: var(--primary-green); /* Borda de destaque no hover */
+  border-color: var(--primary-green);
 }
 
 .artist-image {
   width: 100%;
-  height: 250px; /* Altura maior para as imagens */
+  height: 250px;
   overflow: hidden;
   position: relative;
 }
@@ -418,12 +432,12 @@ html {
   height: 100%;
   object-fit: cover;
   transition: var(--transition-smooth);
-  filter: brightness(0.95); /* Imagem um pouco mais escura */
+  filter: brightness(0.95);
 }
 
 .artist-card:hover .artist-image img {
-  transform: scale(1.05); /* Zoom mais sutil */
-  filter: brightness(1.05); /* Clareia um pouco no hover */
+  transform: scale(1.05);
+  filter: brightness(1.05);
 }
 
 .artist-info {
@@ -440,7 +454,7 @@ html {
 }
 
 .artist-genre {
-  color: var(--primary-green); /* Gênero em cor de destaque */
+  color: var(--primary-green);
   margin-bottom: 20px;
   font-size: 1rem;
   font-weight: 500;
@@ -476,6 +490,10 @@ html {
 
 /* Danit */
 .danit-img img {
+  object-position: center 20%;
+}
+
+.fabao-img img {
   object-position: center 20%;
 }
 

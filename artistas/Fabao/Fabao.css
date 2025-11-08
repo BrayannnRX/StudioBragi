@@ -156,7 +156,6 @@ html {
   height: 320px;
   border-radius: 50%;
   object-fit: cover;
-   object-position: center 30%; /*Ajuste da altura da imagem*/
   border: 4px solid var(--primary-green);
   box-shadow: var(--shadow-heavy);
   position: relative;
@@ -730,6 +729,23 @@ html {
     transform: scale(1);
   }
 }
+
+/* === FOOTER === */
+/* Footer Bottom - igual ao da página inicial */
+.footer-bottom {
+    background-color: #0f0f0f;   /* Fundo escuro da faixa inferior */
+    padding: 20px 0;            /* Espaçamento vertical */
+    text-align: center;         /* Texto centralizado */
+}
+
+.footer-bottom p {
+    color: #9b9b9b;             /* Cor acinzentada suave do texto */
+    font-size: 14px;
+    margin: 0;
+    letter-spacing: 0.3px;
+    font-family: "Inter", sans-serif; /* Mesmo estilo tipográfico */
+}
+
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
